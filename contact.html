@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image" href="logo.jpg">
+    <title>Contact Us - Elite Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+/* ==== ROOT & GLOBAL ==== */
+:root {
+    --primary: #003366;
+    --secondary: #ffffff;
+    --accent: #d4af37;
+    --text: #333333;
+    --light-bg: #f8f9fa;
+    --border: #e0e0e0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text);
+    line-height: 1.7;
+    background: var(--light-bg);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    color: var(--primary);
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary);
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* ==== BUTTONS ==== */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #002244;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 51, 102, 0.3);
+}
+
+/* ==== LAYOUT ==== */
+.section {
+    padding: 80px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.section-title::after {
+    content: '';
+    width: 80px;
+    height: 4px;
+    background: var(--accent);
+    display: block;
+    margin: 20px auto 0;
+    border-radius: 2px;
+}
+
+/* ==== HEADER ==== */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+}
+
+.nav-menu li {
+    margin-left: 30px;
+}
+
+.nav-menu a {
+    color: var(--primary);
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::after,
+.nav-menu a.active::after {
+    width: 100%;
+}
+
+.mobile-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--primary);
+}
+
+/* ==== CONTACT INFO ==== */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin: 60px 0;
+}
+
+.contact-item {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.contact-item:hover {
+    transform: translateY(-5px);
+}
+
+.contact-item i {
+    font-size: 3rem;
+    color: var(--accent);
+    margin-bottom: 20px;
+}
+
+.contact-item h3 {
+    margin-bottom: 15px;
+}
+
+.contact-item p {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* ==== CONTACT FORM ==== */
+.form-container {
+    background: white;
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--primary);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.form-group textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+/* ==== MAP ==== */
+.map-container {
+    height: 400px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin: 60px 0;
+    background: #e0e0e0; /* Placeholder for map */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: #666;
+}
+
+/* ==== FOOTER ==== */
+footer {
+    background: var(--primary);
+    color: white;
+    padding: 60px 0 30px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-col h3 {
+    color: var(--accent);
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-col h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: var(--accent);
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col a {
+    color: #ccc;
+}
+
+.footer-col a:hover {
+    color: var(--accent);
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background: var(--accent);
+    color: var(--primary);
+    transform: translateY(-3px);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+/* ==== WhatsApp Button ==== */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+    z-index: 999;
+    animation: pulse 2s infinite;
+    cursor: pointer;
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.1);
+}
+
+@keyframes pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70%  { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* ==== RESPONSIVE ==== */
+@media (max-width: 768px) {
+    .mobile-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 100%;
+        left: -100%;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 20px 0;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        transition: left 0.3s ease;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-menu li {
+        margin: 15px 0;
+        text-align: center;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .form-container {
+        padding: 30px 20px;
+    }
+}
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="container nav-container">
+        <div class="logo">Elite<span>Academy</span></div>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="faculty.html">Faculty</a></li>
+                    <li><a href="testimonals.html">Teastimonials</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                    <li><a href="Register.html">Register</a></li>
+            </ul>
+            <div class="mobile-toggle"><i class="fas fa-bars"></i></div>
+        </nav>
+    </div>
+</header>
+
+<!-- CONTACT SECTION -->
+<section class="section">
+    <div class="container">
+        <div class="section-title">
+            <h2>Get In Touch</h2>
+            <p>We'd love to hear from you. Reach out today!</p>
+        </div>
+
+        <!-- CONTACT INFO GRID -->
+        <div class="contact-grid">
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Visit Us</h3>
+                <p>Divine Tution Center<br>Irinjalakuda, Near Hungrill Tana (680121)</p>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <h3>Call Us</h3>
+                <p>+91 82815 66117</p>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <h3>Email Us</h3>
+                <p>divinetutuioncenter@gmail.com</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FORM SECTION -->
+<section class="section">
+    <div class="container">
+        <div class="form-container">
+            <h2 style="text-align: center; margin-bottom: 40px;">Send Us a Message</h2>
+            <form action="#" method="POST">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>About Us</h3>
+                <p>Leading institution in academic excellence since 1990.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Admissions</a></li>
+                    <li><a href="#">Programs</a></li>
+                    <li><a href="#">Campus Life</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contact</h3>
+                <p>info@eliteacademy.edu</p>
+                <p>+1 (555) 123-4567</p>
+            </div>
+            <div class="footer-col">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">&copy; 2025 Elite Academy. All rights reserved.</div>
+    </div>
+</footer>
+
+<!-- WhatsApp -->
+<a href="https://wa.me/8281566117" class="whatsapp-btn" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+<script>
+        // Mobile Menu
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        mobileToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = mobileToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                    mobileToggle.querySelector('i').classList.add('fa-bars');
+                    mobileToggle.querySelector('i').classList.remove('fa-times');
+                }
+            });
+        });
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Register Form
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Registration successful! Please check your email to verify.');
+            window.location.href = 'login.html';
+        });
+    </script>
+</body>
+</html>

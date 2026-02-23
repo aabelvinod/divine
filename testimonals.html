@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image" href="logo.jpg">
+    <title>Testimonials | Divine Tuition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        /* ==== ROOT & GLOBAL ==== */
+:root {
+    --primary: #003366;
+    --secondary: #ffffff;
+    --accent: #d4af37;
+    --text: #333333;
+    --light-bg: #f8f9fa;
+    --border: #e0e0e0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+    background: var(--light-bg);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    color: var(--primary);
+}
+
+a {
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* ==== LAYOUT ==== */
+.section {
+    padding: 80px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.section-title::after {
+    content: '';
+    width: 80px;
+    height: 4px;
+    background: var(--accent);
+    display: block;
+    margin: 20px auto 0;
+    border-radius: 2px;
+}
+
+/* ==== HEADER ==== */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+}
+
+.nav-menu li {
+    margin-left: 30px;
+}
+
+.nav-menu a {
+    color: var(--primary);
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::after,
+.nav-menu a.active::after {
+    width: 100%;
+}
+
+.mobile-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--primary);
+}
+
+/* ==== FOOTER ==== */
+footer {
+    background: var(--primary);
+    color: white;
+    padding: 60px 0 30px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-col h3 {
+    color: var(--accent);
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-col h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: var(--accent);
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col a {
+    color: #ccc;
+}
+
+.footer-col a:hover {
+    color: var(--accent);
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background: var(--accent);
+    color: var(--primary);
+    transform: translateY(-3px);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+/* ==== WhatsApp Button ==== */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+    z-index: 999;
+    animation: pulse 2s infinite;
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.1);
+}
+
+@keyframes pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70%  { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* ==== TESTIMONIALS SECTION ==== */
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.testimonial {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+.testimonial::before {
+    content: '"';
+    font-size: 5rem;
+    color: var(--accent);
+    opacity: 0.2;
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    font-family: Georgia, serif;
+}
+
+.testimonial p {
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+}
+
+.testimonial-author img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+.author-info h5 {
+    margin: 0;
+    color: var(--primary);
+}
+
+.author-info span {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* ==== RESPONSIVE ==== */
+@media (max-width: 768px) {
+    .mobile-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 100%;
+        left: -100%;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 20px 0;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        transition: left 0.3s ease;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-menu li {
+        margin: 15px 0;
+        text-align: center;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <a href="https://wa.me/8281566117" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <header>
+        <div class="container nav-container">
+            <div class="logo">Divine <span>Tuition</span></div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="faculty.html">Faculty</a></li>
+                    <li><a href="testimonals.html" class="active">Teastimonials</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="Register.html">Register</a></li>
+                </ul>
+                <div class="mobile-toggle"><i class="fas fa-bars"></i></div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Success Stories</h2>
+                <p>Hear from our students and parents</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <p>"Divine Tuition transformed my child's attitude towards studies. From average grades to topping the class – truly remarkable!"</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Parent">
+                        <div class="author-info">
+                            <h5>Mrs. Anita Sharma</h5>
+                            <span>Parent of Class 10 Student</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <p>"The personalized attention and structured approach helped me secure 98% in Mathematics. Best decision ever!"</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Student">
+                        <div class="author-info">
+                            <h5>Rahul Mehta</h5>
+                            <span>Class 12 Topper</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <p>"Teachers here don't just teach – they inspire. My confidence in Science has grown tremendously."</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Student">
+                        <div class="author-info">
+                            <h5>Priya Singh</h5>
+                            <span>Class 8 Student</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Divine Tuition</h3>
+                    <p>Empowering young minds with quality education since 2010.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="testimonials.html">Testimonials</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li>+91 98765 43210</li>
+                        <li>info@divinetuition.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">© <span id="year"></span> Divine Tuition. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        mobileToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = mobileToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+    </script>
+</body>
+</html>

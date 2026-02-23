@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Register for Divine Tuition – Join our premium coaching classes today.">
+    <link rel="icon" type="image" href="logo.jpg">
+    <title>Register | Divine Tuition</title>
+    <!-- SAME CSS/STYLES AS LOGIN PAGE -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        :root {
+    --primary: #003366;
+    --secondary: #ffffff;
+    --accent: #d4af37;
+    --text: #333333;
+    --light-bg: #f8f9fa;
+    --border: #e0e0e0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text);
+    line-height: 1.7;
+    background: var(--light-bg);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    color: var(--primary);
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Header (same) */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+}
+
+.nav-menu li {
+    margin-left: 30px;
+}
+
+.nav-menu a {
+    color: var(--primary);
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::after,
+.nav-menu a.active::after {
+    width: 100%;
+}
+
+.mobile-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--primary);
+}
+
+/* Register Section */
+.register-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 20px 80px;
+}
+
+.register-card {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+}
+
+.register-card .logo {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.register-card h2 {
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+}
+
+.register-card p {
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--primary);
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.btn {
+    display: inline-block;
+    width: 100%;
+    padding: 14px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #002244;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 51, 102, 0.3);
+}
+
+.register-footer {
+    margin-top: 25px;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.register-footer a {
+    color: var(--accent);
+    font-weight: 500;
+}
+
+/* Footer (same) */
+footer {
+    background: var(--primary);
+    color: white;
+    padding: 40px 0 20px;
+    font-size: 0.9rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.footer-col h3 {
+    color: var(--accent);
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.footer-col a {
+    color: #ccc;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.footer-col a:hover {
+    color: var(--accent);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #aaa;
+}
+
+/* WhatsApp */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+    z-index: 999;
+    animation: pulse 2s infinite;
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.1);
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
+@media (max-width: 768px) {
+    .mobile-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 100%;
+        left: -100%;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 20px 0;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        transition: left 0.3s ease;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-menu li {
+        margin: 15px 0;
+        text-align: center;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/8281566117" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">Divine <span>Tuition</span></div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="faculty.html">Faculty</a></li>
+                    <li><a href="testimonals.html">Teastimonials</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="Register.html" class="active">Register</a></li>
+                </ul>
+                <div class="mobile-toggle"><i class="fas fa-bars"></i></div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Register Section -->
+    <section class="register-section">
+        <div class="register-card">
+            <div class="logo">Divine <span>Tuition</span></div>
+            <h2>Create Account</h2>
+            <p>Join our premium coaching classes today</p>
+            <form id="registerForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" placeholder="Enter first name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" placeholder="Enter last name" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" placeholder="Enter email" required>
+                </div>
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input type="tel" placeholder="Enter phone number" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Grade/Class</label>
+                        <select required>
+                            <option value="">Select Grade</option>
+                            <option value="1">Class 1</option>
+                            <option value="2">Class 2</option>
+                            <option value="3">Class 3</option>
+                            <option value="4">Class 4</option>
+                            <option value="5">Class 5</option>
+                            <option value="6">Class 6</option>
+                            <option value="7">Class 7</option>
+                            <option value="8">Class 8</option>
+                            <option value="9">Class 9</option>
+                            <option value="10">Class 10</option>
+                            <option value="11">Class 11</option>
+                            <option value="12">Class 12</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Subject Interest</label>
+                        <select required>
+                            <option value="">Select Subject</option>
+                            <option value="math">Mathematics</option>
+                            <option value="science">Science</option>
+                            <option value="english">English</option>
+                            <option value="all">All Subjects</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Register</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Divine Tuition</h3>
+                    <p>Nurturing Minds, Shaping Futures since 2010.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="courses.html">Courses</a>
+                    <a href="faculty.html">Faculty</a>
+                    <a href="admissions.html">Admissions</a>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <a href="tel:+919876543210">+91 98765 43210</a>
+                    <a href="mailto:info@divinetuition.com">info@divinetuition.com</a>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; <span id="year"></span> Divine Tuition. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        mobileToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = mobileToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                    mobileToggle.querySelector('i').classList.add('fa-bars');
+                    mobileToggle.querySelector('i').classList.remove('fa-times');
+                }
+            });
+        });
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Register Form
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Registration successful! Please check your email to verify.');
+            window.location.href = 'login.html';
+        });
+    </script>
+</body>
+</html>
